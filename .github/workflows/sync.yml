@@ -1,9 +1,9 @@
-name: Sync_querys
+name: Sync Folder
 
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'app/queries/entities/**'
 
@@ -17,12 +17,16 @@ jobs:
         with:
           repository: <usuario>/test_repoB
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: test_repoB
+          path: repoB
+
+      - name: Create Folder
+        run: |
+          mkdir -p repoB/app/queries/entities
 
       - name: Copy Files
         run: |
-          cp -r app/queries/entities test_repoB/app/queries/entities
-          cd test_repoB
+          cp -r app/queries/entities/. repoB/app/queries/entities
+          cd repoB
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add app/queries/entities/*
