@@ -3,7 +3,7 @@ name: Sync Folder
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'app/queries/entities/**'
 
