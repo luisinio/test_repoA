@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: luisinio/test_repoB
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPOB_ACCESS_TOKEN }}
           path: repoB
           ref: 'main'
 
@@ -36,4 +36,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add app/queries/entities/*
           git commit -m "Sync files from Repo A"
-          git push https://${{ secrets.REPOB_ACCESS_TOKEN }}@github.com/luisinio/test_repoB.git HEAD:main
+          git push
