@@ -1,4 +1,4 @@
-name: Sync Folder
+name: Sync Querys
 
 on:
   push:
@@ -35,5 +35,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add app/queries/entities/*
+          git diff --name-only --diff-filter=D | xargs -L1 -i git rm "{}" # Eliminar archivos eliminados en Repo A
           git commit -m "Sync files from Repo A"
           git push
