@@ -20,7 +20,7 @@ jobs:
       - name: Checkout Repo B
         uses: actions/checkout@v2
         with:
-          repository: <usuario>/test_repoB
+          repository: luisinio/test_repoB
           token: ${{ secrets.GITHUB_TOKEN }}
           path: repoB
           ref: 'main' # Especifica la rama predeterminada
