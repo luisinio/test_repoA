@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repo A
         uses: actions/checkout@v2
         with:
-          ref: 'main' # Especifica la rama predeterminada
+          ref: 'main'
 
       - name: Checkout Repo B
         uses: actions/checkout@v2
@@ -23,7 +23,10 @@ jobs:
           repository: luisinio/test_repoB
           token: ${{ secrets.GITHUB_TOKEN }}
           path: repoB
-          ref: 'main' # Especifica la rama predeterminada
+          ref: 'main'
+
+      - name: Create Folder
+        run: mkdir -p repoB/app/queries/entities
 
       - name: Sync Files
         run: |
