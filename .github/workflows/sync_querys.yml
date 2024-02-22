@@ -12,18 +12,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repo A
+        uses: actions/checkout@v2
+        with:
+          ref: 'main' # Especifica la rama predeterminada
+
       - name: Checkout Repo B
         uses: actions/checkout@v2
         with:
           repository: <usuario>/test_repoB
           token: ${{ secrets.GITHUB_TOKEN }}
           path: repoB
+          ref: 'main' # Especifica la rama predeterminada
 
-      - name: Create Folder
-        run: |
-          mkdir -p repoB/app/queries/entities
-
-      - name: Copy Files
+      - name: Sync Files
         run: |
           cp -r app/queries/entities/. repoB/app/queries/entities
           cd repoB
