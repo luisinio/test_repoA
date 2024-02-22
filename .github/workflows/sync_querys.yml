@@ -1,3 +1,4 @@
+yaml
 name: Sync Folder
 
 on:
@@ -36,4 +37,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add app/queries/entities/*
           git commit -m "Sync files from Repo A"
-          git push
+          git push https://REPOB_ACCESS_TOKEN@github.com/luisinio/test_repoB.git HEAD:main
